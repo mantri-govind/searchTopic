@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<h1> Search For Topic</h1>
+<%= form_tag "/result" do %>
+  <%= text_field_tag "search" %> 
+  <%= submit_tag "search" %>
+<% end %>
+
+<br>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
