@@ -102,6 +102,9 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    passenger (5.0.30)
+      rack
+      rake (>= 0.8.1)
     pg (0.18.4)
     pr_geohash (1.0.0)
     rack (1.6.4)
@@ -219,6 +222,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   json
+  passenger (~> 5.0, >= 5.0.30)
   pg (~> 0.15)
   rails (= 4.2.6)
   rails_admin
@@ -237,4 +241,4 @@ DEPENDENCIES
   zip-zip
 
 BUNDLED WITH
-   1.13.3
+   1.13.6
