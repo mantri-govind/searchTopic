@@ -8,7 +8,7 @@ class ContentsController < ApplicationController
   # GET /contents.json
 
   def index
-    @contents = Content.all
+  #  @contents = Content.all
   end
 
   # GET /contents/1
@@ -21,8 +21,7 @@ class ContentsController < ApplicationController
         fulltext params[:search]
       end
     @contents = @search.results
-    p "*************"
-    p @contents
+    render "index"
   end
 
   # GET /contents/new

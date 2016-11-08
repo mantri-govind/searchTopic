@@ -9,9 +9,10 @@
     </div>
 <div class="clear"></div>    
 <div class="row">
-<%= render :partial => 'search_result' %>
+<% if @contents.present? %>
+<%= render :partial => 'search_result',locals:{contents:@contents} %>
+<% end %>
 </div>
 <br>
  
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 
