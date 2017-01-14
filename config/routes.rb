@@ -4,10 +4,19 @@ Rails.application.routes.draw do
   devise_for :users
  # match ':content', :to => 'content#new' ,:via=>[:get,:post]
   resources :contents,  only: [:index,:show, :new, :create, :destroy]
+  resources :problem_statement, only: [:index,:show, :new, :create],:controller => "problem_statement"
+
+
   root "contents#index"
   #match ':controller(/:action(/:id))', :via=>[:get,:post]
   #root "#index"
   match '/result' => 'contents#result' ,:via=>[:get,:post] , :as=>'result'
+  match '/download_file' => 'contents#download_file' ,:via=>[:get,:post] , :as=>'download_file'
+
+
+  #match '/create' => 'problem_statement#create_problem_statement' ,:via=>[:get,:post] , :as=>'create_problem_statement'
+  
+  
   #match '/inx' => 'inx#inx', :via => [:get, :post], :as=>'inx'
 
   #resources :contents_path, only: [:new,:create]

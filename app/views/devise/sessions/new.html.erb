@@ -459,28 +459,24 @@ label:hover:before {
 	<!-- Main Form -->
 	<div class="login-form-1">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'text-left', :id=>'login-form'} ) do |f| %>
-
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">
 					<div class="form-group">
 						<label for="lg_username" class="sr-only">Username</label>
-                        <%= f.email_field :email, :class=>"form-control",:autofocus=> true, :id=>"lg_username", :placeholder=>"email" %>
-						 
+              <%= f.email_field :email, :class=>"form-control",:autofocus=> true, :id=>"lg_username", :placeholder=>"email" %>
 					</div>
 					<div class="form-group">
 						<label for="lg_password" class="sr-only">Password</label>
-                        
-                        <%= f.password_field :password, autocomplete: "off", :class=>"form-control", :id=>"lg_password" , :placeholder=>"password" %>
-						 
+              <%= f.password_field :password, autocomplete: "off", :class=>"form-control", :id=>"lg_password" , :placeholder=>"password" %>
 					</div>
 					<div class="form-group login-group-checkbox">
-                        <% if devise_mapping.rememberable? -%>
-                            <div class="field">
-                              <%= f.check_box :remember_me,:id=>"lg_remember" %>
-                               <label for="lg_remember">remember</label>
-                            </div>
-                          <% end -%>
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me,:id=>"lg_remember" %>
+                    <label for="lg_remember">remember</label>
+                </div>
+              <% end -%>
 					 
 						
 					</div>

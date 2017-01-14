@@ -1,0 +1,18 @@
+
+<%= form_for @problemstatement,url: problem_statement_index_path(@problemstatement), html: { multipart: true }  do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :tags %>
+  <%= f.text_field :tags %>
+  <%= f.label :attachment %>
+  <%= f.file_field :attachment %>
+  <%= f.label :start_date %>
+  <%= f.date_field :start_date %>
+  <%= f.label :end_date %>
+  <%= f.date_field :end_date %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
+

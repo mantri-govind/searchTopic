@@ -14,23 +14,39 @@ class ContentsController < ApplicationController
   # GET /contents/1
   # GET /contents/1.json
   def show
-
-  end
-  def result
-    @search = Content.search do
-        fulltext params[:search]
-      end
-    @contents = @search.results
-    render "index"
   end
 
   # GET /contents/new
   def new
     @content = Content.new
   end
+   
+  def result
+    @search = Content.search do
+        fulltext params[:search]
+    end
+    @contents = @search.results
+    render "index"
+  end
 
   # GET /contents/1/edit
   def edit
+  end
+
+
+  def download_file
+#    begin
+      id = params[:id]
+      content = Content.find(id)
+      contents_path = content.attachment.path
+      
+      content.download = 1 + (content.download==nil ? 0 : content.download  )
+      content.save
+      send_file(contents_path, :x_sendfile => true ,:disposition => 'inline')
+    # rescue
+    #   flash[:error] = "File not found!"
+    #   redirect_to :back
+    # end
   end
 
   # POST /contents
@@ -43,8 +59,6 @@ class ContentsController < ApplicationController
         render "new"
     end
   end
-
-
 
   # PATCH/PUT /contents/1
   # PATCH/PUT /contents/1.json
